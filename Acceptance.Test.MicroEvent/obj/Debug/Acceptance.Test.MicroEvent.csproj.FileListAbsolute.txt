@@ -1,0 +1,5 @@
+C:\Projects\MicroEvent\Acceptance.Test.MicroEvent\bin\Debug\Acceptance.Test.MicroEvent.dll
+C:\Projects\MicroEvent\Acceptance.Test.MicroEvent\bin\Debug\Acceptance.Test.MicroEvent.pdb
+C:\Projects\MicroEvent\Acceptance.Test.MicroEvent\obj\Debug\Acceptance.Test.MicroEvent.csprojResolveAssemblyReference.cache
+C:\Projects\MicroEvent\Acceptance.Test.MicroEvent\obj\Debug\Acceptance.Test.MicroEvent.dll
+C:\Projects\MicroEvent\Acceptance.Test.MicroEvent\obj\Debug\Acceptance.Test.MicroEvent.pdb
