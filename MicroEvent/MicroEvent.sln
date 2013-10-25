@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroEvent", "MicroEvent.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acceptance.Test.MicroEvent", "..\Acceptance.Test.MicroEvent\Acceptance.Test.MicroEvent.csproj", "{1875589F-481E-46C1-BEA5-DE3E196CAB2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.MicroEvent", "Test.MicroEvent\Test.MicroEvent.csproj", "{EC7D437E-67E0-43AC-976B-74B0F309E238}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.MicroEvent", "..\Test.MicroEvent\Test.MicroEvent.csproj", "{EC7D437E-67E0-43AC-976B-74B0F309E238}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
