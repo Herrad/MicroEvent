@@ -1,9 +1,0 @@
-C:\Projects\MicroEvent\Acceptance.Test.MicroEvent\bin\Debug\Acceptance.Test.MicroEvent.dll
-C:\Projects\MicroEvent\Acceptance.Test.MicroEvent\bin\Debug\Acceptance.Test.MicroEvent.pdb
-C:\Projects\MicroEvent\Acceptance.Test.MicroEvent\obj\Debug\Acceptance.Test.MicroEvent.csprojResolveAssemblyReference.cache
-C:\Projects\MicroEvent\Acceptance.Test.MicroEvent\obj\Debug\Acceptance.Test.MicroEvent.dll
-C:\Projects\MicroEvent\Acceptance.Test.MicroEvent\obj\Debug\Acceptance.Test.MicroEvent.pdb
-C:\Projects\MicroEvent\Acceptance.Test.MicroEvent\bin\Debug\Acceptance.Test.MicroEvent.dll.config
-C:\Projects\MicroEvent\Acceptance.Test.MicroEvent\bin\Debug\nunit.framework.dll
-C:\Projects\MicroEvent\Acceptance.Test.MicroEvent\bin\Debug\TechTalk.SpecFlow.dll
-C:\Projects\MicroEvent\Acceptance.Test.MicroEvent\bin\Debug\nunit.framework.xml
