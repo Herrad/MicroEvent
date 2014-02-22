@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroEvent", "MicroEvent.csproj", "{7B7EBE6D-DAF6-44E2-8C6F-C1091662AD8B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acceptance.Test.MicroEvent", "..\Acceptance.Test.MicroEvent\Acceptance.Test.MicroEvent.csproj", "{1875589F-481E-46C1-BEA5-DE3E196CAB2A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.MicroEvent", "..\Test.MicroEvent\Test.MicroEvent.csproj", "{EC7D437E-67E0-43AC-976B-74B0F309E238}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{5ADB1021-3FAE-492F-A4A6-2A8CFBCEE28B}"
 	ProjectSection(SolutionItems) = preProject
@@ -13,6 +11,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{5ADB10
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acceptance.Test.MicroEvent", "Acceptance.Test.MicroEvent\Acceptance.Test.MicroEvent.csproj", "{1875589F-481E-46C1-BEA5-DE3E196CAB2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.MicroEvent", "Test.MicroEvent\Test.MicroEvent.csproj", "{EC7D437E-67E0-43AC-976B-74B0F309E238}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F022EAC9-F73F-4D53-A35E-01BB96AD2A6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,5 +39,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1875589F-481E-46C1-BEA5-DE3E196CAB2A} = {F022EAC9-F73F-4D53-A35E-01BB96AD2A6A}
+		{EC7D437E-67E0-43AC-976B-74B0F309E238} = {F022EAC9-F73F-4D53-A35E-01BB96AD2A6A}
 	EndGlobalSection
 EndGlobal
