@@ -1,32 +1,46 @@
-﻿using TechTalk.SpecFlow;
+﻿using MicroEvent;
+using NUnit.Framework;
+using TechTalk.SpecFlow;
 
 namespace Acceptance.Test.MicroEvent.Steps
 {
     [Binding]
-    public class PublishingAnEventSteps
+    public class PublishingAnEventSteps : Subscriber
     {
-        [Given(@"I have a data store")]
-        public void GivenIHaveADataStore()
+        private bool _iWasNotified;
+
+        [BeforeScenario]
+        public void SetUp()
         {
-            
+            _iWasNotified = false;
         }
 
-        [Given(@"a service front end")]
-        public void GivenAServiceFrontEnd()
+        [Given(@"I am subscribed to TestEvents")]
+        public void GivenIAmSubscribedToTestEvents()
         {
-            ScenarioContext.Current.Pending();
+            Subscriber subscriber = this;
+            var eventBus = new EventBus();
+            eventBus.Subscribe(subscriber);
+
+            ScenarioContext.Current["bus"] = eventBus;
         }
 
-        [When(@"I publish an event via the service")]
-        public void WhenIPublishAnEventViaTheService()
+        [When(@"a TestEvent is published")]
+        public void WhenATestEventIsPublished()
         {
-            ScenarioContext.Current.Pending();
+            var bus = (EventBus) ScenarioContext.Current["bus"];
+
+            bus.Publish(new TestEvent());
         }
 
-        [Then(@"a write event is triggered")]
-        public void ThenAWriteEventIsTriggered()
+        [Then(@"I am notified")]
+        public void ThenIAmNotified()
         {
-            ScenarioContext.Current.Pending();
+            Assert.That(_iWasNotified);
         }
+    }
+
+    public class TestEvent : AnEvent
+    {
     }
 }
