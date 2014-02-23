@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using MicroEvent;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
@@ -6,26 +7,48 @@ using TechTalk.SpecFlow;
 namespace Acceptance.Test.MicroEvent.Steps
 {
     [Binding]
-    public class PublishingAnEventSteps : Subscriber
+    public class PublishingAnEventSteps 
     {
-        private bool _iWasNotified;
-
-        [BeforeScenario]
-        public void SetUp()
+        private class NotifyingExposureSubscription : Subscription
         {
-            _iWasNotified = false;
+            public NotifyingExposureSubscription(Type eventType) : base(eventType)
+            {
+                WasNotified = false;
+            }
+
+            public override void Notify(AnEvent anEvent)
+            {
+                WasNotified = true;
+            }
+
+            public bool WasNotified { get; set; }
+        }
+
+
+        private static void CreateEventBusSubscribedToEventsOfType(Type eventType)
+        {
+            var subscription = new NotifyingExposureSubscription(eventType);
+            ScenarioContext.Current["subscription"] = subscription;
+
+            var subscriptionList = new List<Subscription>();
+            var eventBus = new EventBus(subscriptionList, new List<AnEvent>());
+            eventBus.Subscribe(subscription);
+
+            ScenarioContext.Current["bus"] = eventBus;
         }
 
         [Given(@"I am subscribed to TestEvents")]
         public void GivenIAmSubscribedToTestEvents()
         {
-            Subscriber subscriber = this;
-            var subscriptionList = new List<Subscriber>();
-            var eventBus = new EventBus(subscriptionList, new List<AnEvent>());
-            eventBus.Subscribe(subscriber);
-
-            ScenarioContext.Current["bus"] = eventBus;
+            CreateEventBusSubscribedToEventsOfType(typeof (TestEvent));
         }
+
+        [Given(@"I am subscribed to OtherEvents")]
+        public void GivenIAmSubscribedToOtherEvents()
+        {
+            CreateEventBusSubscribedToEventsOfType(typeof(OtherEvent));
+        }
+
 
         [When(@"a TestEvent is published")]
         public void WhenATestEventIsPublished()
@@ -38,16 +61,15 @@ namespace Acceptance.Test.MicroEvent.Steps
         [Then(@"I am notified")]
         public void ThenIAmNotified()
         {
-            Assert.That(_iWasNotified);
+            var subscription = (NotifyingExposureSubscription) ScenarioContext.Current["subscription"];
+            Assert.That(subscription.WasNotified);
         }
 
-        public override void Notify(AnEvent anEvent)
+        [Then(@"I am not notified")]
+        public void ThenIAmNotNotified()
         {
-            _iWasNotified = true;
+            var subscription = (NotifyingExposureSubscription)ScenarioContext.Current["subscription"];
+            Assert.That(subscription.WasNotified, Is.False);
         }
-    }
-
-    public class TestEvent : AnEvent
-    {
     }
 }

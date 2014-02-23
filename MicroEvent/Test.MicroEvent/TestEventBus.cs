@@ -11,11 +11,11 @@ namespace Test.MicroEvent
         [Test]
         public void Subscribing_to_an_event_adds_the_subscriber_to_the_subscription_list()
         {
-            var subscriptionList = new List<Subscriber>();
+            var subscriptionList = new List<Subscription>();
 
             var eventBus = new EventBus(subscriptionList, null);
 
-            var subscriber = new FakeSubscriber();
+            var subscriber = new FakeSubscription(typeof(AnEvent));
 
             eventBus.Subscribe(subscriber);
 
@@ -27,7 +27,7 @@ namespace Test.MicroEvent
         {
             var eventStore = new List<AnEvent>();
 
-            var eventBus = new EventBus(new List<Subscriber>(), eventStore);
+            var eventBus = new EventBus(new List<Subscription>(), eventStore);
 
             var fakeEvent = new FakeEvent();
 
@@ -39,11 +39,11 @@ namespace Test.MicroEvent
         [Test]
         public void Subscribers_are_notified_when_their_event_occurs()
         {
-            var subscriptionList = new List<Subscriber>
+            var subscriptionList = new List<Subscription>
             {
-                new FakeSubscriber(),
-                new FakeSubscriber(),
-                new FakeSubscriber()
+                new FakeSubscription(typeof(FakeEvent)),
+                new FakeSubscription(typeof(FakeEvent)),
+                new FakeSubscription(typeof(FakeEvent))
             };
 
             var eventBus = new EventBus(subscriptionList, new List<AnEvent>());
@@ -52,9 +52,30 @@ namespace Test.MicroEvent
 
             eventBus.Publish(fakeEvent);
 
-            Assert.That(((FakeSubscriber)subscriptionList[0]).LastEvent, Is.EqualTo(fakeEvent));
-            Assert.That(((FakeSubscriber)subscriptionList[1]).LastEvent, Is.EqualTo(fakeEvent));
-            Assert.That(((FakeSubscriber)subscriptionList[2]).LastEvent, Is.EqualTo(fakeEvent));
+            Assert.That(((FakeSubscription)subscriptionList[0]).LastEvent, Is.EqualTo(fakeEvent));
+            Assert.That(((FakeSubscription)subscriptionList[1]).LastEvent, Is.EqualTo(fakeEvent));
+            Assert.That(((FakeSubscription)subscriptionList[2]).LastEvent, Is.EqualTo(fakeEvent));
+        }
+
+        [Test]
+        public void Subscriptions_to_events_are_not_notified_when_different_event_types_are_published()
+        {
+            var subscriptionList = new List<Subscription>
+            {
+                new FakeSubscription(typeof(FakeEvent)),
+                new FakeSubscription(typeof(AnotherEvent)),
+                new FakeSubscription(typeof(FakeEvent))
+            };
+
+            var eventBus = new EventBus(subscriptionList, new List<AnEvent>());
+
+            var fakeEvent = new FakeEvent();
+
+            eventBus.Publish(fakeEvent);
+
+            Assert.That(((FakeSubscription)subscriptionList[0]).LastEvent, Is.EqualTo(fakeEvent));
+            Assert.That(((FakeSubscription)subscriptionList[1]).LastEvent, Is.Null);
+            Assert.That(((FakeSubscription)subscriptionList[2]).LastEvent, Is.EqualTo(fakeEvent));
         }
     }
 }

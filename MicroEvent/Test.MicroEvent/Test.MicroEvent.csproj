@@ -44,8 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnotherEvent.cs" />
     <Compile Include="FakeEvent.cs" />
-    <Compile Include="FakeSubscriber.cs" />
+    <Compile Include="FakeSubscription.cs" />
     <Compile Include="TestEventBus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
