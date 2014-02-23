@@ -6,10 +6,12 @@ namespace MicroEvent
     public class EventBus
     {
         private readonly IList<Subscriber> _subscriptionList;
+        private readonly IList<AnEvent> _eventStore;
 
-        public EventBus(IList<Subscriber> subscriptionList, List<AnEvent> eventStore)
+        public EventBus(IList<Subscriber> subscriptionList, IList<AnEvent> eventStore)
         {
             _subscriptionList = subscriptionList;
+            _eventStore = eventStore;
         }
 
         public void Subscribe(Subscriber subscriber)
@@ -19,7 +21,7 @@ namespace MicroEvent
 
         public void Publish(AnEvent anEvent)
         {
-            throw new NotImplementedException();
+            _eventStore.Add(anEvent);
         }
     }
 }
