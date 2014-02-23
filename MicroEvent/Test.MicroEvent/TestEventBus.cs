@@ -27,13 +27,34 @@ namespace Test.MicroEvent
         {
             var eventStore = new List<AnEvent>();
 
-            var eventBus = new EventBus(null, eventStore);
+            var eventBus = new EventBus(new List<Subscriber>(), eventStore);
 
             var fakeEvent = new FakeEvent();
 
             eventBus.Publish(fakeEvent);
 
             Assert.That(eventStore.Contains(fakeEvent));
+        }
+
+        [Test]
+        public void Subscribers_are_notified_when_their_event_occurs()
+        {
+            var subscriptionList = new List<Subscriber>
+            {
+                new FakeSubscriber(),
+                new FakeSubscriber(),
+                new FakeSubscriber()
+            };
+
+            var eventBus = new EventBus(subscriptionList, new List<AnEvent>());
+
+            var fakeEvent = new FakeEvent();
+
+            eventBus.Publish(fakeEvent);
+
+            Assert.That(((FakeSubscriber)subscriptionList[0]).LastEvent, Is.EqualTo(fakeEvent));
+            Assert.That(((FakeSubscriber)subscriptionList[1]).LastEvent, Is.EqualTo(fakeEvent));
+            Assert.That(((FakeSubscriber)subscriptionList[2]).LastEvent, Is.EqualTo(fakeEvent));
         }
     }
 }

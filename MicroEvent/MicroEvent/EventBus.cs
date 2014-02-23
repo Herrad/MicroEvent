@@ -22,6 +22,10 @@ namespace MicroEvent
         public void Publish(AnEvent anEvent)
         {
             _eventStore.Add(anEvent);
+            foreach (var subscriber in _subscriptionList)
+            {
+                subscriber.Notify(anEvent);
+            }
         }
     }
 }

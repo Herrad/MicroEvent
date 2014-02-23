@@ -40,6 +40,11 @@ namespace Acceptance.Test.MicroEvent.Steps
         {
             Assert.That(_iWasNotified);
         }
+
+        public override void Notify(AnEvent anEvent)
+        {
+            _iWasNotified = true;
+        }
     }
 
     public class TestEvent : AnEvent
