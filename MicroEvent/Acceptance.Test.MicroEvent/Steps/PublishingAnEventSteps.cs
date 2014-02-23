@@ -21,7 +21,7 @@ namespace Acceptance.Test.MicroEvent.Steps
         {
             Subscriber subscriber = this;
             var subscriptionList = new List<Subscriber>();
-            var eventBus = new EventBus(subscriptionList);
+            var eventBus = new EventBus(subscriptionList, new List<AnEvent>());
             eventBus.Subscribe(subscriber);
 
             ScenarioContext.Current["bus"] = eventBus;

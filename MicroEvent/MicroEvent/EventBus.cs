@@ -7,7 +7,7 @@ namespace MicroEvent
     {
         private readonly IList<Subscriber> _subscriptionList;
 
-        public EventBus(IList<Subscriber> subscriptionList)
+        public EventBus(IList<Subscriber> subscriptionList, List<AnEvent> eventStore)
         {
             _subscriptionList = subscriptionList;
         }

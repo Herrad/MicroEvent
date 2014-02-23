@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FakeEvent.cs" />
     <Compile Include="FakeSubscriber.cs" />
     <Compile Include="TestEventBus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
