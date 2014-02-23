@@ -5,14 +5,16 @@ namespace MicroEvent
 {
     public class EventBus
     {
-        public EventBus(IEnumerable<Subscriber> subscriptionList)
+        private readonly IList<Subscriber> _subscriptionList;
+
+        public EventBus(IList<Subscriber> subscriptionList)
         {
-            
+            _subscriptionList = subscriptionList;
         }
 
-        public void Subscribe(Subscriber publishingAnEventSteps)
+        public void Subscribe(Subscriber subscriber)
         {
-            throw new NotImplementedException();
+            _subscriptionList.Add(subscriber);
         }
 
         public void Publish(AnEvent anEvent)

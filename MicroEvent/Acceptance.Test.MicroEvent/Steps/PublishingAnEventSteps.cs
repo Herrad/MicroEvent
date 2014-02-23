@@ -1,4 +1,5 @@
-﻿using MicroEvent;
+﻿using System.Collections.Generic;
+using MicroEvent;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 
@@ -19,7 +20,8 @@ namespace Acceptance.Test.MicroEvent.Steps
         public void GivenIAmSubscribedToTestEvents()
         {
             Subscriber subscriber = this;
-            var eventBus = new EventBus();
+            var subscriptionList = new List<Subscriber>();
+            var eventBus = new EventBus(subscriptionList);
             eventBus.Subscribe(subscriber);
 
             ScenarioContext.Current["bus"] = eventBus;
