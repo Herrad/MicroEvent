@@ -10,15 +10,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{5ADB10
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acceptance.Test.MicroEvent", "Acceptance.Test.MicroEvent\Acceptance.Test.MicroEvent.csproj", "{1875589F-481E-46C1-BEA5-DE3E196CAB2A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.MicroEvent", "Test.MicroEvent\Test.MicroEvent.csproj", "{EC7D437E-67E0-43AC-976B-74B0F309E238}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F022EAC9-F73F-4D53-A35E-01BB96AD2A6A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A7B8EC4A-217A-48D7-837F-0ABF3874C4B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroEvent", "MicroEvent\MicroEvent.csproj", "{514C2C11-AC2A-42BD-BC59-919DC9FD9C29}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acceptance.Test.MicroEvent", "test\Acceptance.Test.MicroEvent\Acceptance.Test.MicroEvent.csproj", "{1875589F-481E-46C1-BEA5-DE3E196CAB2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.MicroEvent", "test\Test.MicroEvent\Test.MicroEvent.csproj", "{EC7D437E-67E0-43AC-976B-74B0F309E238}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroEvent", "src\MicroEvent\MicroEvent.csproj", "{514C2C11-AC2A-42BD-BC59-919DC9FD9C29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

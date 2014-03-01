@@ -1,5 +1,0 @@
-C:\Projects\MicroEvent\MicroEvent\bin\Debug\MicroEvent.dll
-C:\Projects\MicroEvent\MicroEvent\bin\Debug\MicroEvent.pdb
-C:\Projects\MicroEvent\MicroEvent\obj\Debug\MicroEvent.csprojResolveAssemblyReference.cache
-C:\Projects\MicroEvent\MicroEvent\obj\Debug\MicroEvent.dll
-C:\Projects\MicroEvent\MicroEvent\obj\Debug\MicroEvent.pdb
